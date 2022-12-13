@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/wantzuuuu/react-shop/static/css/main.8787c4f4.css",
-    "main.js": "/wantzuuuu/react-shop/static/js/main.c79d27a6.js",
-    "static/js/787.771cead6.chunk.js": "/wantzuuuu/react-shop/static/js/787.771cead6.chunk.js",
-    "static/media/icomoon.svg?9y2h0z": "/wantzuuuu/react-shop/static/media/icomoon.9255f5c7b92083110c72.svg",
-    "static/media/icomoon.eot?9y2h0z": "/wantzuuuu/react-shop/static/media/icomoon.5146bc4fa282a587f0c8.eot",
-    "static/media/icomoon.woff?9y2h0z": "/wantzuuuu/react-shop/static/media/icomoon.2e53ff47aadb82401864.woff",
-    "static/media/icomoon.ttf?9y2h0z": "/wantzuuuu/react-shop/static/media/icomoon.30a5e5c1fcacc5c05c23.ttf",
-    "index.html": "/wantzuuuu/react-shop/index.html",
-    "main.8787c4f4.css.map": "/wantzuuuu/react-shop/static/css/main.8787c4f4.css.map",
-    "main.c79d27a6.js.map": "/wantzuuuu/react-shop/static/js/main.c79d27a6.js.map",
-    "787.771cead6.chunk.js.map": "/wantzuuuu/react-shop/static/js/787.771cead6.chunk.js.map"
+    "main.css": "/react-shop/static/css/main.21b87c29.css",
+    "main.js": "/react-shop/static/js/main.a556f686.js",
+    "static/js/787.771cead6.chunk.js": "/react-shop/static/js/787.771cead6.chunk.js",
+    "static/media/icomoon.svg?9y2h0z": "/react-shop/static/media/icomoon.9255f5c7b92083110c72.svg",
+    "static/media/icomoon.eot?9y2h0z": "/react-shop/static/media/icomoon.5146bc4fa282a587f0c8.eot",
+    "static/media/icomoon.woff?9y2h0z": "/react-shop/static/media/icomoon.2e53ff47aadb82401864.woff",
+    "static/media/icomoon.ttf?9y2h0z": "/react-shop/static/media/icomoon.30a5e5c1fcacc5c05c23.ttf",
+    "index.html": "/react-shop/index.html",
+    "main.21b87c29.css.map": "/react-shop/static/css/main.21b87c29.css.map",
+    "main.a556f686.js.map": "/react-shop/static/js/main.a556f686.js.map",
+    "787.771cead6.chunk.js.map": "/react-shop/static/js/787.771cead6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8787c4f4.css",
-    "static/js/main.c79d27a6.js"
+    "static/css/main.21b87c29.css",
+    "static/js/main.a556f686.js"
   ]
 }
