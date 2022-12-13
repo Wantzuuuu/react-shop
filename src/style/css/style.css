@@ -1,0 +1,244 @@
+@charset "UTF-8";
+/*  ===== 斷點變數 ===== */
+/*  ===== 往上適應 ===== */
+/*  ===== 往下適應 ===== */
+/*  ===== 範圍內適應 ===== */
+/*  ===== 直立螢幕 ===== */
+/*  ===== 橫向螢幕 ===== */
+/*  ===== 基本漸層背景設定 ===== */
+/*  ===== 以 em 計算font-size, letter-spacing(RWD時方便使用) ===== */
+/*  ===== 文字置中時的 letter spacing 偏移修正 ===== */
+/*  ===== letter spacing 偏移重設 ===== */
+/*  ===== firefox font weight bold 統一設定為 normal (firefox在小字為粗體的時候會過粗) ===== */
+/*  ===== a連結清除預設值 ===== */
+/*  ===== icomoon ===== */
+/*  ===== 字體設定（全域/英文/中文) ===== */
+/*  ===== 圖片相關 ===== */
+/*  ===== 排版相關 ===== */
+/*  ===== 超過文字省略為...(可設定行數) ===== */
+/*  ===== 捲軸樣式設定 ===== */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/**
+ * Allows you to use retina images at various pixel densities.
+ * Examples:
+ *
+ *   +retina(/images/mypic.jpg, 2);
+ *   +retina(/images/mypic.jpg, 3, 100px 100px, left top no-repeat transparent);
+ *
+ * @param  {Value}  $path               The path to the file name minus extension.
+ * @param  {Number} $cap:    2          The highest pixel density level images exist for.
+ * @param  {Value}  $size:   auto auto  The intended width of the rendered image.
+ * @param  {Value}  $extras: null       Any other `background` values to be added.
+ */
+html {
+  scroll-behavior: auto !important;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: unset;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: auto;
+  color: #000;
+  font-family: 'Roboto', 'Noto Sans TC', "Microsoft JhengHei", "PingFang TC" , "蘋果儷中黑",'sans-serif' , Arial;
+  font-display: swap;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  image-rendering: auto;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+}
+
+body.loading-out {
+  opacity: 0;
+}
+
+h1 {
+  font-size: 2.875rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.375rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+span {
+  font-size: 100%;
+}
+
+p, a, li, span {
+  font-size: inherit;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+.loading-block {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+}
+
+.link-block {
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: opacity .4s ease;
+  transition: opacity .4s ease;
+}
+
+.link-block:hover {
+  opacity: .7;
+  color: #000;
+}
+
+.logo-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.an-block {
+  opacity: 0;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+  position: relative;
+}
+
+.an-block::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: -webkit-transform .5s linear;
+  transition: -webkit-transform .5s linear;
+  transition: transform .5s linear;
+  transition: transform .5s linear, -webkit-transform .5s linear;
+}
+
+.an-block.fade-in {
+  opacity: 1;
+}
+
+.an-block.fade-in::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right top;
+          transform-origin: right top;
+}
+
+.an-block.delay-4 {
+  -webkit-transition: -webkit-transform .5s linear 1s;
+  transition: -webkit-transform .5s linear 1s;
+  transition: transform .5s linear 1s;
+  transition: transform .5s linear 1s, -webkit-transform .5s linear 1s;
+}
+
+.ul-list-none {
+  list-style: none;
+  padding-left: 0;
+}
+/*# sourceMappingURL=style.css.map */

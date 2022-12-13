@@ -1,0 +1,169 @@
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina 
+    
+header
+    position: fixed
+    z-index: 999
+    width: 100%
+    top: 0 
+    left: 0
+    .link-block
+        +fz(20)
+
+    .logo-title
+        +fz(32)
+
+
+.header-container
+    margin: 0 auto
+    width: 95%
+    padding: 20px 0
+    +media-down(md)
+        width: 90%
+
+.header-wrap
+    +d-flex(space-between , center)
+
+.logo-btn
+    +media-down(md)
+        display: none
+
+
+.menu-block
+    position: fixed
+    z-index: 1000
+    left: 0
+    top: 0
+    width: 100%
+    height: 100vh
+    visibility: visible
+    &.open
+        .menu-item
+            transform-origin: top right
+            transform: scaleX(1)
+
+    &.hide 
+        visibility: hidden
+            
+.menu-block-wrap
+    +d-flex
+    width: 100%
+    height: 100vh
+
+    .menu-item
+        max-width: 50%
+        flex-basis: 50%
+        height: 100%
+        transform-origin: top left
+        transform: scaleX(0)
+        transition: transform .4s ease
+        +media-down(xl)
+            max-width: 100%
+            flex-basis: 100%
+            
+            
+
+.menu-bg-block
+    +media-down(xl)
+        display: none
+.menu-bg
+    width: 100%
+    height: 100%
+
+.menu-list-block
+    background-color: colors(dark)
+    color: colors(white)
+
+    .link-block
+        color: colors(white)
+        transition: all .4s ease
+        &:hover
+            opacity: .7
+            color: unset
+        &.menu-link
+            +fz(24)
+            font-weight: 700
+            letter-spacing: 0.05em
+
+        &.menu-category-btn
+            font-weight: 500
+
+        &.icon-btn
+            +fz(24)
+
+
+    .menu-list-container
+        padding: 40px 50px
+        +media-down(md)
+            padding: 30px 
+
+    .menu-list-top
+        margin-bottom: 120px
+        +media-down(md)
+            margin-bottom: 40px
+
+    .menu-list-top-wrap
+        +d-flex(space-between , center)
+
+    .cancel-menu
+        +fz(28)
+
+    .menu-list-mid
+        margin-bottom: 28px
+        +media-down(xl)
+            margin-bottom: 20px
+
+    .menu-list-wrap
+        +d-flex
+        border-bottom: 1px solid rgba(colors(white) , .3)
+        +media-down(xl)
+            flex-wrap: wrap
+        .menu-list-item
+            max-width: 50%
+            flex-basis: 50%
+            +media-down(lg)
+                max-width: 100%
+                flex-basis: 100%
+    .menu-list
+        margin: 0
+        li
+            margin-bottom: 28px
+            +media-down(xl)
+                margin-bottom: 20px
+
+    .menu-category-list
+        padding-left: 14px
+        li 
+            margin-bottom: 8px
+            +media-down(xl)
+                margin-bottom: 5px
+            // &::before 
+            //     content: "-"
+            //     color: colors(grey)
+            //     margin-right: 8px
+
+    .menu-icon-wrap
+        +d-flex
+        .item
+            padding: 0 12px
+
+
+
+
+.text-fade-bottom
+    transform: scaleY(0)
+    transform-origin: bottom
+    display: inline-block
+    transition: transform .6s ease .4s
+    visibility: hidden
+    &.scale
+        visibility: visible
+        transform: scaleY(1)
+    &.link-block
+        transition: transform .6s ease .4s
+        &.delay-6
+            transition: transform .6s ease .6s
+        &.delay-8
+            transition: transform .6s ease .8s

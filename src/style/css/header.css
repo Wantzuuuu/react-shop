@@ -1,0 +1,403 @@
+@charset "UTF-8";
+/*  ===== 斷點變數 ===== */
+/*  ===== 往上適應 ===== */
+/*  ===== 往下適應 ===== */
+/*  ===== 範圍內適應 ===== */
+/*  ===== 直立螢幕 ===== */
+/*  ===== 橫向螢幕 ===== */
+/*  ===== 基本漸層背景設定 ===== */
+/*  ===== 以 em 計算font-size, letter-spacing(RWD時方便使用) ===== */
+/*  ===== 文字置中時的 letter spacing 偏移修正 ===== */
+/*  ===== letter spacing 偏移重設 ===== */
+/*  ===== firefox font weight bold 統一設定為 normal (firefox在小字為粗體的時候會過粗) ===== */
+/*  ===== a連結清除預設值 ===== */
+/*  ===== icomoon ===== */
+/*  ===== 字體設定（全域/英文/中文) ===== */
+/*  ===== 圖片相關 ===== */
+/*  ===== 排版相關 ===== */
+/*  ===== 超過文字省略為...(可設定行數) ===== */
+/*  ===== 捲軸樣式設定 ===== */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/**
+ * Allows you to use retina images at various pixel densities.
+ * Examples:
+ *
+ *   +retina(/images/mypic.jpg, 2);
+ *   +retina(/images/mypic.jpg, 3, 100px 100px, left top no-repeat transparent);
+ *
+ * @param  {Value}  $path               The path to the file name minus extension.
+ * @param  {Number} $cap:    2          The highest pixel density level images exist for.
+ * @param  {Value}  $size:   auto auto  The intended width of the rendered image.
+ * @param  {Value}  $extras: null       Any other `background` values to be added.
+ */
+header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+header .link-block {
+  font-size: 1.25rem;
+}
+
+header .logo-title {
+  font-size: 2rem;
+}
+
+.header-container {
+  margin: 0 auto;
+  width: 95%;
+  padding: 20px 0;
+}
+
+@media (max-width: 767px) {
+  .header-container {
+    width: 90%;
+  }
+}
+
+.header-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media (max-width: 767px) {
+  .logo-btn {
+    display: none;
+  }
+}
+
+.menu-block {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  visibility: visible;
+}
+
+.menu-block.open .menu-item {
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.menu-block.hide {
+  visibility: hidden;
+}
+
+.menu-block-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.menu-block-wrap .menu-item {
+  max-width: 50%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  height: 100%;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform .4s ease;
+  transition: -webkit-transform .4s ease;
+  transition: transform .4s ease;
+  transition: transform .4s ease, -webkit-transform .4s ease;
+}
+
+@media (max-width: 1199px) {
+  .menu-block-wrap .menu-item {
+    max-width: 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .menu-bg-block {
+    display: none;
+  }
+}
+
+.menu-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-list-block {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.menu-list-block .link-block {
+  color: #fff;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.menu-list-block .link-block:hover {
+  opacity: .7;
+  color: unset;
+}
+
+.menu-list-block .link-block.menu-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.menu-list-block .link-block.menu-category-btn {
+  font-weight: 500;
+}
+
+.menu-list-block .link-block.icon-btn {
+  font-size: 1.5rem;
+}
+
+.menu-list-block .menu-list-container {
+  padding: 40px 50px;
+}
+
+@media (max-width: 767px) {
+  .menu-list-block .menu-list-container {
+    padding: 30px;
+  }
+}
+
+.menu-list-block .menu-list-top {
+  margin-bottom: 120px;
+}
+
+@media (max-width: 767px) {
+  .menu-list-block .menu-list-top {
+    margin-bottom: 40px;
+  }
+}
+
+.menu-list-block .menu-list-top-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.menu-list-block .cancel-menu {
+  font-size: 1.75rem;
+}
+
+.menu-list-block .menu-list-mid {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 1199px) {
+  .menu-list-block .menu-list-mid {
+    margin-bottom: 20px;
+  }
+}
+
+.menu-list-block .menu-list-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1199px) {
+  .menu-list-block .menu-list-wrap {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.menu-list-block .menu-list-wrap .menu-list-item {
+  max-width: 50%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+@media (max-width: 991px) {
+  .menu-list-block .menu-list-wrap .menu-list-item {
+    max-width: 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+.menu-list-block .menu-list {
+  margin: 0;
+}
+
+.menu-list-block .menu-list li {
+  margin-bottom: 28px;
+}
+
+@media (max-width: 1199px) {
+  .menu-list-block .menu-list li {
+    margin-bottom: 20px;
+  }
+}
+
+.menu-list-block .menu-category-list {
+  padding-left: 14px;
+}
+
+.menu-list-block .menu-category-list li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1199px) {
+  .menu-list-block .menu-category-list li {
+    margin-bottom: 5px;
+  }
+}
+
+.menu-list-block .menu-icon-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.menu-list-block .menu-icon-wrap .item {
+  padding: 0 12px;
+}
+
+.text-fade-bottom {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  display: inline-block;
+  -webkit-transition: -webkit-transform .6s ease .4s;
+  transition: -webkit-transform .6s ease .4s;
+  transition: transform .6s ease .4s;
+  transition: transform .6s ease .4s, -webkit-transform .6s ease .4s;
+  visibility: hidden;
+}
+
+.text-fade-bottom.scale {
+  visibility: visible;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+
+.text-fade-bottom.link-block {
+  -webkit-transition: -webkit-transform .6s ease .4s;
+  transition: -webkit-transform .6s ease .4s;
+  transition: transform .6s ease .4s;
+  transition: transform .6s ease .4s, -webkit-transform .6s ease .4s;
+}
+
+.text-fade-bottom.link-block.delay-6 {
+  -webkit-transition: -webkit-transform .6s ease .6s;
+  transition: -webkit-transform .6s ease .6s;
+  transition: transform .6s ease .6s;
+  transition: transform .6s ease .6s, -webkit-transform .6s ease .6s;
+}
+
+.text-fade-bottom.link-block.delay-8 {
+  -webkit-transition: -webkit-transform .6s ease .8s;
+  transition: -webkit-transform .6s ease .8s;
+  transition: transform .6s ease .8s;
+  transition: transform .6s ease .8s, -webkit-transform .6s ease .8s;
+}
+/*# sourceMappingURL=header.css.map */

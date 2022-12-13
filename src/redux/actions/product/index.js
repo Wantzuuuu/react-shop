@@ -1,0 +1,1 @@
+export const getProduct = (data)=>({type : "getProduct" , data}) ;

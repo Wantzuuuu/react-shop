@@ -1,0 +1,287 @@
+@charset "UTF-8";
+/*  ===== 斷點變數 ===== */
+/*  ===== 往上適應 ===== */
+/*  ===== 往下適應 ===== */
+/*  ===== 範圍內適應 ===== */
+/*  ===== 直立螢幕 ===== */
+/*  ===== 橫向螢幕 ===== */
+/*  ===== 基本漸層背景設定 ===== */
+/*  ===== 以 em 計算font-size, letter-spacing(RWD時方便使用) ===== */
+/*  ===== 文字置中時的 letter spacing 偏移修正 ===== */
+/*  ===== letter spacing 偏移重設 ===== */
+/*  ===== firefox font weight bold 統一設定為 normal (firefox在小字為粗體的時候會過粗) ===== */
+/*  ===== a連結清除預設值 ===== */
+/*  ===== icomoon ===== */
+/*  ===== 字體設定（全域/英文/中文) ===== */
+/*  ===== 圖片相關 ===== */
+/*  ===== 排版相關 ===== */
+/*  ===== 超過文字省略為...(可設定行數) ===== */
+/*  ===== 捲軸樣式設定 ===== */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/**
+ * Allows you to use retina images at various pixel densities.
+ * Examples:
+ *
+ *   +retina(/images/mypic.jpg, 2);
+ *   +retina(/images/mypic.jpg, 3, 100px 100px, left top no-repeat transparent);
+ *
+ * @param  {Value}  $path               The path to the file name minus extension.
+ * @param  {Number} $cap:    2          The highest pixel density level images exist for.
+ * @param  {Value}  $size:   auto auto  The intended width of the rendered image.
+ * @param  {Value}  $extras: null       Any other `background` values to be added.
+ */
+.product-header {
+  max-width: 1000px;
+  margin: 200px auto 100px auto;
+}
+
+@media (max-width: 1199px) {
+  .product-header {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-header {
+    margin: 120px auto 40px auto;
+  }
+}
+
+.product-header-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media (max-width: 767px) {
+  .product-header-wrap {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.products-title-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media (max-width: 767px) {
+  .products-title-block {
+    max-width: 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 25px;
+  }
+}
+
+.product-page-title {
+  margin-right: 30px;
+  font-size: 1.375rem;
+}
+
+.products-len {
+  font-size: 1.125rem;
+}
+
+.products-filter-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media (max-width: 767px) {
+  .products-filter-block {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+.products-filter-block .filter-title {
+  font-size: 1.125rem;
+  margin-right: 25px;
+}
+
+@media (max-width: 767px) {
+  .products-filter-block .filter-title {
+    display: none;
+  }
+}
+
+.products-select-wrap {
+  padding: 6px 42px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 16px;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .products-select-wrap {
+    width: 100%;
+  }
+}
+
+.products-select-wrap::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.8);
+  border-right: 1px solid rgba(128, 128, 128, 0.8);
+  right: 12px;
+  bottom: 50%;
+  -webkit-transform: translate(0, 40%) rotate(45deg);
+          transform: translate(0, 40%) rotate(45deg);
+}
+
+.products-select {
+  border: none;
+  font-size: 1rem;
+  padding: 0;
+  text-align: center;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.products-select:focus-visible {
+  outline: 0;
+}
+
+.product-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .product-container {
+    max-width: 87%;
+  }
+}
+
+.product-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 -24px 80px -24px;
+}
+
+@media (max-width: 767px) {
+  .product-wrap {
+    margin: 0 0 80px 0;
+  }
+}
+
+.product-wrap .item {
+  max-width: 33.333%;
+  -ms-flex-preferred-size: 33.333%;
+      flex-basis: 33.333%;
+  padding: 0 6px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  .product-wrap .item {
+    max-width: 50%;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-wrap .item {
+    max-width: 100%;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=products.css.map */

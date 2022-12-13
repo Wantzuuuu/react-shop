@@ -1,0 +1,26 @@
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina  
+
+.detail-container
+    padding-top: 200px
+    min-height: 80vh
+
+.detail-image
+    width: 100%
+    padding-top: calc(100% / 300 * 250)
+    background-color: colors(black)
+    +media-down(lg)
+        margin-bottom: 25px
+
+.product-des-mid
+    margin: 40px 0
+
+.des-title
+    +fz(32)
+    font-weight: 700
+
+.product-price
+    +fz(20)
+    font-weight: 700

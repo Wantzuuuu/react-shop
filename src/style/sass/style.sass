@@ -1,0 +1,199 @@
+//----------------------------
+// Catalog 目錄 :
+//----------------------------
+
+// header
+//----------------------------
+    
+
+// 共用樣式
+//----------------------------
+    // - body, html
+    // - 文字樣式
+    // - 按鈕樣式
+    // - 共用樣式 
+
+// 首頁
+//----------------------------
+    // - 首頁共用樣式
+    // - 首頁
+
+// 內頁
+//----------------------------
+    // - 內頁共用樣式
+    // - 內頁
+
+
+// 其他
+//----------------------------
+    // - retina background img setting
+    // - 瀏覽器相容
+    
+    
+// footer
+//----------------------------
+
+
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina 
+
+// ----------------------------
+// header
+// ----------------------------
+
+
+//  ==== 主選單 ==== //
+nav
+
+
+
+
+//----------------------------
+// - body, html
+//----------------------------
+
+html
+  scroll-behavior: auto!important
+
+
+*
+    box-sizing: border-box
+body,html
+    margin: 0
+    padding: 0
+    scroll-behavior: unset
+    
+body
+    overflow-x: hidden
+    scroll-behavior: auto
+    color: colors(black)
+    +d_fontF
+    word-break: break-word
+    // chrome文字平滑化
+    -webkit-font-smoothing: antialiased
+    // chrome圖片銳利化
+    // image-rendering: -webkit-optimize-contrast
+    // chrome圖片鋸齒狀優化
+    image-rendering: auto
+    // 解決觸控螢幕擊放大問題
+    touch-action: manipulation
+    // 解決firefox 字體粗度問題
+    -moz-osx-font-smoothing: grayscale
+    +fz(16)
+    // +media-down(md)
+    //     +fz(16)
+    &.loading-out
+        opacity: 0
+
+// ----------------------------
+// - 文字樣式
+// ----------------------------
+
+// @font-face
+//   font-family: 'Noto Serif TC'
+//   src: url(../fonts/NotoSerifCJKtc-Medium.otf)
+
+h1
+    +fz(46)  
+h2
+    +fz(36)
+h3
+    +fz(28)
+h4
+    +fz(22)
+h5
+    +fz(18)
+h6
+    +fz(16)
+    +ls(4,16)
+
+h1 , h2 , h3 , h4 , h5 , h6 , p
+    margin: 0
+
+span
+    font-size: 100%
+
+p, a , li, span
+    font-size: inherit
+
+b, strong
+    font-weight: bold
+// ----------------------------
+// - 按鈕樣式
+// ----------------------------
+
+// ----------------------------
+// - 共用樣式
+// ----------------------------
+
+.loading-block
+    width: 100%
+    height: 100vh
+    background-color: (black)
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 999
+    color: colors(white)
+    +d-flex(center , center)
+
+.bg-cover
+    background-size: cover
+    background-position: center center
+
+.link-block
+    text-decoration: none
+    color: colors(black)
+    transition: opacity .4s ease
+    &:hover
+        opacity: .7
+        color: colors(black)
+
+.logo-title
+    +fz(32)
+    font-weight: 700
+.an-block
+    opacity: 0
+    transition: all .7s ease
+    position: relative
+    &::after
+        content: ""
+        position: absolute
+        z-index: 1
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        background-color: colors(black)
+        transform: scaleX(1)
+        transform-origin: left center
+        transition: transform .5s linear
+    &.fade-in
+        opacity: 1
+        &::after
+            transform: scaleX(0)
+            transform-origin: right top
+
+    &.delay-4
+        transition: transform .5s linear 1s
+.ul-list-none
+    list-style: none
+    padding-left: 0
+
+// ----------------------------
+// 瀏覽器相容
+// ----------------------------
+//  ==== 個別瀏覽器設定 ==== //
+.safari
+.ie
+.firefox
+
+
+// ----------------------------
+// footer
+// ----------------------------
+footer
+
+

@@ -1,0 +1,57 @@
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina  
+
+.footer
+    background-color: colors(dark)
+    color: colors(white)
+    padding: 100px 0
+
+.footer-container
+    max-width: 1000px
+    margin: 0 auto
+    +media-down(xl)
+        max-width: 85%
+
+.footer-wrap
+    +d-flex
+    margin: 0 -12px
+    +media-down(lg)
+        flex-wrap: wrap
+
+.logo-title
+    display: inline-block
+
+.link-list-block
+    max-width: 33.333%
+    flex-basis: 33.333%
+    padding: 0 12px
+    +media-down(lg)
+        max-width: 100%
+        flex-basis: 100%
+        margin-bottom: 40px
+    &:nth-of-type(1)
+        
+
+.link-list
+    padding-left: 0
+    list-style: none
+    margin: 0
+    li 
+        margin-bottom: 20px
+
+.f-link
+    transition: all .4s ease
+    &.link-block
+        color: colors(white)
+        font-weight: 700
+    &:hover
+        opacity: .7
+
+
+
+.copyright-block
+
+.copyright
+    +fz(12)

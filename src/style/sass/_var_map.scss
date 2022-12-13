@@ -1,0 +1,288 @@
+
+//----------------------------
+// Catalog 目錄 :
+//----------------------------
+
+// 模組與共用樣式
+//----------------------------
+// - 變數定義
+// - 斷點定義(RWD)
+// - media定義
+// - 模組定義
+//----------------------------
+
+// ---------------------------
+// - 變數定義
+// ---------------------------
+
+// 代入方式: colors(main)
+$colors: (
+    mainL: #2d9dd1 ,
+    main: #147ac0 ,
+    mainD: #0f3f66 ,
+    black: #000 , 
+    white: #fff, 
+    error: #e85744 , 
+    dark: #1a1a1a ,
+    grey: grey
+);
+
+// 代入方式: boxshadow(default)
+$boxshadow: (
+    default: 0 0 0.5rem rgba(#fff, .3),
+);
+
+@function colors($color-name){
+    @return map-get($colors, $color-name);
+}
+
+@function boxshadow($boxshadow-name){
+    @return map-get($boxshadow, $boxshadow-name);
+}
+
+
+// ----------------------------
+// - 斷點定義(RWD)(同bootstrap4)
+// ----------------------------
+/*  ===== 斷點變數 ===== */
+$breakpoints: (
+    xs: 320px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px,
+    xxxl: 1600px,
+);
+
+/*  ===== 往上適應 ===== */
+// 引用方式: +media-up(sm)
+@mixin media-up($breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+}
+
+/*  ===== 往下適應 ===== */
+// 引用方式: +media-down(sm)
+@mixin media-down($breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+}
+
+/*  ===== 範圍內適應 ===== */
+// 引用方式: +media-between(sm, md)
+@mixin media-between($lower, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+      @content;
+    }
+}
+/*  ===== 直立螢幕 ===== */
+@mixin portrait {
+    @media (orientation: portrait){
+      @content;
+    }
+}
+/*  ===== 橫向螢幕 ===== */
+@mixin landscape {
+    @media (orientation: landscape){
+      @content;
+    }
+}
+
+// ----------------------------
+// - media定義
+// ----------------------------
+// 觸控裝置
+@mixin is-touch{
+    @media (hover: none){
+      @content;   
+    }
+}
+// 非觸控裝置
+@mixin not-touch{
+    @media (hover: hover){
+      @content;   
+    }
+}
+
+// ----------------------------
+// - 模組定義
+// ----------------------------
+/*  ===== 基本漸層背景設定 ===== */
+// 引用方式: +gradient(134deg,#fff,4%,#eee,92%)
+@mixin gradient($deg, $c1, $c1ratio, $c2, $c2ratio){
+    background-image: linear-gradient($deg, $c1 #{$c1ratio}, $c2 #{$c2ratio}),
+}
+
+/*  ===== 以 em 計算font-size, letter-spacing(RWD時方便使用) ===== */
+// 引用方式: +fz(16) 放font-size的px值
+@mixin fz($size){
+    font-size: #{$size / 16}rem;
+}
+// 引用方式: +ls(15,22) 前面放letter-spacing的px值, 後面放font-size的px值
+@mixin ls($ls, $fz){
+    letter-spacing: #{$ls / $fz}rem;
+}
+// 引用方式: +lh(15,22) 前面放line-height的px值, 後面放font-size的px值
+@mixin lh($lh, $fz){
+    line-height: #{$lh / $fz};
+}
+// 引用方式: +mb(15,22) 前面放margin的px值, 後面放font-size的px值
+@mixin mb($m, $fz){
+    margin-bottom: #{$m / $fz}rem;
+}
+@mixin mt($m, $fz){
+    margin-top: #{$m / $fz}rem;
+}
+@mixin pb($p, $fz){
+    padding-bottom: #{$p / $fz}rem;
+}
+@mixin pt($p, $fz){
+    padding-top: #{$p / $fz}rem;
+}
+/*  ===== 文字置中時的 letter spacing 偏移修正 ===== */
+@mixin ls-center-fix($ls, $fz){
+    letter-spacing: #{$ls / $fz}rem;
+    text-indent: #{$ls / $fz}rem;
+}
+@mixin pl-center-fix($ls, $fz){
+    padding-left: #{$ls / $fz}rem;   
+}
+/*  ===== letter spacing 偏移重設 ===== */
+@mixin ls-reset($ls:normal){
+    letter-spacing: $ls;
+    text-indent: normal;
+}
+/*  ===== firefox font weight bold 統一設定為 normal (firefox在小字為粗體的時候會過粗) ===== */
+@mixin fw-b{
+    font-weight: bold;
+    @-moz-document url-prefix(){
+        font-weight: normal;
+    }
+}
+/*  ===== a連結清除預設值 ===== */
+@mixin a-reset{
+    text-decoration: none;
+    &:active, &:hover, &:visited, &:focus{
+        text-decoration: none;
+        outline: 0;
+    }
+}
+/*  ===== icomoon ===== */
+@mixin icomoon{
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*  ===== 字體設定（全域/英文/中文) ===== */
+@mixin d-fontF{
+    font-family: 'Roboto', 'Noto Sans TC', "Microsoft JhengHei", "PingFang TC" , "蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}
+@mixin en-fontF{
+    font-family: 'Roboto','Noto Sans TC', "Microsoft JhengHei", "PingFang TC" ,"蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}
+@mixin cn-fontF{
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", "PingFang TC" ,"蘋果儷中黑",'sans-serif' , Arial;
+    font-display: swap;
+}     
+
+/*  ===== 圖片相關 ===== */
+// 向量圖片
+@mixin vector-img{
+    image-rendering: -webkit-optimize-contrast;
+}
+@mixin object-fit($size: cover, $position: center, $w: 100%, $h: 100%){
+    object-fit: $size;
+    object-position: $position;
+    width: $w;
+    height: $h;
+}
+/*  ===== 排版相關 ===== */
+@mixin poa-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+@mixin pof-center{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+// 引用方式一（不設定參數即為預設值）: +d-flex
+// 引用方式二（照順序設定參數）: +d-flex(center,center,row)
+@mixin d-flex($j-c: flex-start, $a-i: stretch, $d: row){
+    display: flex;
+    justify-content: $j-c;
+    align-items: $a-i;
+    flex-direction: $d
+}
+
+/*  ===== 超過文字省略為...(可設定行數) ===== */
+@mixin ellipsis($line: 1){
+    overflow : hidden;
+    text-overflow: ellipsis; 
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    text-align: left
+}
+/*  ===== 捲軸樣式設定 ===== */
+@mixin scrollbar{
+    &::-webkit-scrollbar{
+        width: 7px;
+    }
+    &::-webkit-scrollbar-button{
+        width: 7px;
+        height: 5px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: rgba(#eee, 0);
+        border: 0;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(#d8d8d8, 0.3);
+        border: 0;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+        background-color: rgba(#d8d8d8, 0.5);
+    }
+}
+// 隱藏捲軸
+@mixin scrollbar-hidden{
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

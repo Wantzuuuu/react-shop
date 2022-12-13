@@ -1,0 +1,98 @@
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina
+
+
+.product-header
+    max-width: 1000px
+    margin: 200px auto 100px auto
+    +media-down(xl)
+        max-width: 92%
+    +media-down(md)
+        margin: 120px auto 40px auto
+
+.product-header-wrap
+    +d-flex(space-between , center)
+    +media-down(md)
+        flex-wrap: wrap
+
+.products-title-block
+    +d-flex(flex-start , center)
+    +media-down(md)
+        max-width: 100%
+        flex-basis: 100%
+        justify-content: space-between
+        margin-bottom: 25px
+
+.product-page-title
+    margin-right: 30px
+    +fz(22)
+    
+.products-len
+    +fz(18)
+
+.products-filter-block
+    +d-flex(flex-start , center)
+    +media-down(md)
+        flex-basis: 100%
+    .filter-title
+        +fz(18)
+        margin-right: 25px
+        +media-down(md)
+            display: none
+
+.products-select-wrap
+    padding: 6px 42px
+    border: 1px solid rgba(colors(grey) , .3)
+    border-radius: 16px
+    position: relative
+    +media-down(md)
+        width: 100%
+    &::after 
+        content: ""
+        position: absolute
+        display: block
+        width: 6px
+        height: 6px
+        border-bottom: 1px solid rgba(colors(grey) , .8)
+        border-right: 1px solid rgba(colors(grey) , .8)
+        right: 12px
+        bottom: 50%
+        transform: translate(0,40%) rotate(45deg)
+
+.products-select
+    border: none
+    +fz(16)
+    padding: 0 
+    text-align: center
+    appearance: none
+    &:focus-visible
+        outline: 0
+    
+
+.product-container
+    max-width: 900px
+    margin: 0 auto
+    +media-down(xl)
+        max-width: 87%
+
+.product-wrap
+    +d-flex
+    flex-wrap: wrap
+    margin: 0 -24px 80px -24px
+    +media-down(md)
+        margin: 0 0 80px 0
+    .item
+        max-width: 33.333%
+        flex-basis: 33.333%
+        padding: 0 6px
+        margin-bottom: 20px
+        +media-down(lg)
+            max-width: 50%
+            flex-basis: 50%
+
+        +media-down(md)
+            max-width: 100%
+            flex-basis: 100%
+            padding: 0

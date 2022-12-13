@@ -1,0 +1,132 @@
+@charset "UTF-8";
+/*  ===== 斷點變數 ===== */
+/*  ===== 往上適應 ===== */
+/*  ===== 往下適應 ===== */
+/*  ===== 範圍內適應 ===== */
+/*  ===== 直立螢幕 ===== */
+/*  ===== 橫向螢幕 ===== */
+/*  ===== 基本漸層背景設定 ===== */
+/*  ===== 以 em 計算font-size, letter-spacing(RWD時方便使用) ===== */
+/*  ===== 文字置中時的 letter spacing 偏移修正 ===== */
+/*  ===== letter spacing 偏移重設 ===== */
+/*  ===== firefox font weight bold 統一設定為 normal (firefox在小字為粗體的時候會過粗) ===== */
+/*  ===== a連結清除預設值 ===== */
+/*  ===== icomoon ===== */
+/*  ===== 字體設定（全域/英文/中文) ===== */
+/*  ===== 圖片相關 ===== */
+/*  ===== 排版相關 ===== */
+/*  ===== 超過文字省略為...(可設定行數) ===== */
+/*  ===== 捲軸樣式設定 ===== */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+/**
+ * Allows you to use retina images at various pixel densities.
+ * Examples:
+ *
+ *   +retina(/images/mypic.jpg, 2);
+ *   +retina(/images/mypic.jpg, 3, 100px 100px, left top no-repeat transparent);
+ *
+ * @param  {Value}  $path               The path to the file name minus extension.
+ * @param  {Number} $cap:    2          The highest pixel density level images exist for.
+ * @param  {Value}  $size:   auto auto  The intended width of the rendered image.
+ * @param  {Value}  $extras: null       Any other `background` values to be added.
+ */
+.product-card {
+  width: 100%;
+}
+
+.product-img-box {
+  overflow: hidden;
+  width: 100%;
+  padding-top: calc(100% / 320 * 350);
+  position: relative;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .product-img-box {
+    padding-top: calc(100% / 320 * 200);
+  }
+}
+
+.product-img-box:hover .product-img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.product-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.product-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product-title {
+  font-size: 0.875rem;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-size: 0.75rem;
+}
+/*# sourceMappingURL=productcard.css.map */

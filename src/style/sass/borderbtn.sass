@@ -1,0 +1,51 @@
+@charset "UTF-8"
+@import var_map
+@import keyframes
+@import retina
+
+.border-btn
+    background-color: colors(black)
+    color: colors(white)
+    border-radius: 20px
+    padding: 10px 37px
+    text-decoration: none
+    z-index: 0
+    position: relative
+    overflow: hidden
+    display: block
+    span 
+        position: relative
+        z-index: 2
+        font-weight: 500
+    &::after
+        content: ""
+        position: absolute
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: colors(white)
+        z-index: 1
+        transform: scaleX(0)
+        transition: transform .4s ease
+        transform-origin: right top
+    &:hover
+        +media-up(lg)
+            &::after
+                transform: scaleX(1)
+                transform-origin: left top
+            span 
+                color: colors(black)
+
+
+    &.border-light
+        background-color: colors(white)
+        span
+            color: colors(black)
+        &::after
+            background-color: colors(black)
+        &:hover
+            +media-up(lg)
+                span 
+                    color: colors(white)
+                
